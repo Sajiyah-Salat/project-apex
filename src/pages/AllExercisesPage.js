@@ -374,13 +374,14 @@ const styles = {
     },
     cardContainer: {
         borderWidth: 1,
-        borderColor: COLORS.blue_border_color,
+        borderColor: '#2DEEAA',
         borderRadius: 16,
         padding: 14,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         marginTop: 30,
+        boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
     },
     darkButton: {
         borderRadius: 50,

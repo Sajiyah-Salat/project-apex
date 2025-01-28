@@ -28,7 +28,7 @@ const DarkButton = ({ isLock, onClick, title }) => {
 };
 const ExerciseCard = ({ title, subtitle, onStart }) => {
   return (
-    <div className="border border-blue-200 rounded-2xl p-4 flex items-center mt-8">
+    <div className="border border-[#2DEEAA] shadow-lg rounded-2xl p-4 flex items-center mt-8">
       <div className="flex-1 mr-3">
         <h2 className="text-gray-900 text-xl font-medium">
           {title}
@@ -365,7 +365,8 @@ function ExercisePage() {
         {/* Bottom Button */}
         <button
           onClick={() => history("/AllExercisesPage")}
-          className="w-full mt-8 bg-gray-900 text-white py-3 px-6 rounded-full hover:bg-gray-800 
+          
+          className="w-full mt-8 bg-[#2DEEAA] text-black py-3 px-6 rounded-full 
                      transition-colors font-semibold text-sm text-center"
         >
           Show All Exercises

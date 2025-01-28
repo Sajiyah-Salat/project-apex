@@ -20,7 +20,7 @@ function ProfilePage() {
   };
 
   const menuItems = [
-    { icon: <Settings className="w-6 h-6" />, label: 'Settings' },
+    { icon: <Settings className="w-6 h-6" />, label: 'Settings', onClick: () => navigate("/settings") },
     { icon: <CreditCard className="w-6 h-6" />, label: 'Manage Subscriptions' },
     { icon: <User className="w-6 h-6" />, label: 'Bio Data' },
     { icon: <HelpCircle className="w-6 h-6" />, label: 'About App' },
@@ -47,24 +47,25 @@ function ProfilePage() {
     <div className="min-h-screen bg-gray-50">
       <CustomHeader title="My Profile" goBack={navigateBack} />
 
-      <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
+      <div className=" px-4 py-6 space-y-6">
         {/* Profile Section */}
-        <motion.div
+<div className='flex-col flex md:flex-row h-[57vh] justify-center md:m-20 m-0 gap-10 text-center '>
+<motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl shadow-lg p-6"
+          className="bg-white rounded-2xl shadow-lg p-6 "
         >
-          <div className="flex items-center space-x-4">
+          <div className="flex-col gap-10 items-center space-y-10">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="relative"
+              className="relative "
             >
               <img
                 src={userDetail.avatarUrl}
                 alt="Profile"
-                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+                className="w-96 h-96 rounded-full object-cover border-4 border-white shadow-lg"
               />
               <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
             </motion.div>
@@ -72,7 +73,7 @@ function ProfilePage() {
               <motion.h2
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-xl font-semibold text-gray-900"
+                className="text-xl items-center font-semibold text-gray-900"
               >
                 {userDetail.FullName}
               </motion.h2>
@@ -100,7 +101,7 @@ function ProfilePage() {
               key={item.label}
               variants={itemVariants}
               whileHover={{ backgroundColor: '#f3f4f6' }}
-              className="flex items-center justify-between p-4 cursor-pointer border-b last:border-b-0 border-gray-100"
+              className="flex w-96 items-center justify-between p-4 cursor-pointer border-b last:border-b-0 border-gray-100"
               onClick={item.onClick}
             >
               <div className="flex items-center space-x-4">
@@ -120,6 +121,7 @@ function ProfilePage() {
             </motion.div>
           ))}
         </motion.div>
+</div>
 
         {/* Logout Modal */}
         {showLogoutModal && (

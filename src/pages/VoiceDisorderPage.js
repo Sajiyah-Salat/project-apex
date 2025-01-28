@@ -390,12 +390,12 @@ const VoiceDisorderPage = () => {
         {/* Header */}
         <div className="bg-gray-800 text-white p-4 flex items-center justify-between rounded-t-2xl">
           <div className="flex items-center gap-4">
-            <Button
+            <button
               onClick={navigateBack}
-              className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+              className="p-2 text-white hover:bg-gray-700 rounded-lg transition-colors"
             >
-              Back
-            </Button>
+               &#171;&#171;
+            </button>
             <h1 className="text-2xl font-semibold">Voice Disorder Assessment</h1>
           </div>
         </div>
@@ -424,8 +424,9 @@ const VoiceDisorderPage = () => {
             </div>
           </div>
 
-          {/* Video Player */}
-          {exerciseData && (
+<div className='flex flex-col justify-between gap-10 md:gap-0 md:flex-row'>
+            {/* Video Player */}
+            {exerciseData && (
             <div className="rounded-xl overflow-hidden shadow-lg">
               <VideoPlayer
                 ref={videoRef}
@@ -442,6 +443,19 @@ const VoiceDisorderPage = () => {
             </div>
           )}
 
+          {/* Camera View */}
+          <div className="camera-view rounded-xl overflow-hidden shadow-lg mx-auto max-w-2xl">
+            <Webcam
+              audio={false}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              videoConstraints={{
+                facingMode: 'user',
+              }}
+              className="w-full"
+            />
+          </div>
+</div>
           {/* Exercise Text */}
           <div className="text-center space-y-2 p-6 rounded-xl">
             <p className="text-blue-600 font-medium">Say this...</p>
@@ -469,18 +483,7 @@ const VoiceDisorderPage = () => {
             </div>
           )}
 
-          {/* Camera View */}
-          <div className="camera-view rounded-xl overflow-hidden shadow-lg mx-auto max-w-2xl">
-            <Webcam
-              audio={false}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              videoConstraints={{
-                facingMode: 'user',
-              }}
-              className="w-full"
-            />
-          </div>
+
 
           {/* Error Display */}
           {error && (

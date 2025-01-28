@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import TherapistImage from '../assets/images/TherapistImage.png';
 import CustomHeader from '../components/CustomHeader';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 const CustomButton = ({ onPress, title }) => (
   <motion.button
@@ -44,7 +45,7 @@ function TherapistProfilePage() {
             Hello, I'm IzzyAI Chatbot.
           </motion.h2>
           <motion.p
-            className="text-base px-8 mt-5 text-[#111920] text-center"
+            className="h-[20vh] text-base px-8 mt-5 text-[#111920] text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.5 }}
@@ -52,12 +53,17 @@ function TherapistProfilePage() {
             I will assist you to overcome your speech-language problems. I provide the best possible strategies as per the various needs and preferences of the user. My capabilities include speech recognition, language understanding, and synthesis. I strive to enhance communication experiences for users across different platforms and environments. Let me know how I can assist you further!
           </motion.p>
         </div>
-        <div className="p-5 mt-10 ">
-          <CustomButton
-            onPress={() => navigate('/AvatarTherapistName')}
-            title="Contact AI SLP"
-          />
-        </div>
+        <div className="p-5 mt-10  flex justify-center">
+  <CustomButton
+    className="flex items-center  justify-center px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600"
+    onPress={() => navigate('/AvatarTherapistName')}
+    title={
+      <>
+        <FaPhoneAlt className="mr-2 inline-block" /> Contact AI SLP
+      </>
+    }
+  />
+</div>
       </div>
     </div>
   );

@@ -214,14 +214,28 @@ const ReceptiveAssessment = () => {
             </div>
 
             {/* Question Section */}
-            {questions?.[questionCount - 1] && (
-              <div className="mb-8">
+<div className='flex-col md:flex-row flex justify-between'>
+{questions?.[questionCount - 1] && (
+              <div className="mb-8 items-center">
                 <LogoQuestionView
+
                   first_text={''}
                   second_text={questions[questionCount - 1].question_text}
                 />
               </div>
             )}
+
+                        {/* Video Player */}
+                        <div className="mb-8">
+              <VideoPlayer
+                ref={videoRef}
+                videoHeight={210}
+                source={`${IMAGE_BASE_URL}${questions?.[questionCount - 1]?.avatar_assessment}`}
+                onEnd={() => setIsVideoEnd(true)}
+                onStart={() => setIsVideoEnd(false)}
+              />
+            </div>
+</div>
 
             {/* Image Section */}
             {questions?.length > 0 ? (
@@ -277,16 +291,7 @@ const ReceptiveAssessment = () => {
               </motion.div>
             )}
 
-            {/* Video Player */}
-            <div className="mb-8">
-              <VideoPlayer
-                ref={videoRef}
-                videoHeight={210}
-                source={`${IMAGE_BASE_URL}${questions?.[questionCount - 1]?.avatar_assessment}`}
-                onEnd={() => setIsVideoEnd(true)}
-                onStart={() => setIsVideoEnd(false)}
-              />
-            </div>
+
 
             {/* Loading State */}
             <Loader loading={isLoading} />

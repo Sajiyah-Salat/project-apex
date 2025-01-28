@@ -7,6 +7,8 @@ import Loader from '../components/Loader';
 import DocumentIcon from '../assets/DocumentIcon'; // Assuming it's an SVG or Image
 import { COLORS, fonts } from '../theme'; // Define your colors and fonts
 import CustomHeader from '../components/CustomHeader';
+import shadows from '@mui/material/styles/shadows';
+import { Filter } from 'lucide-react';
 
 const DarkButton = ({ isLock, onClick, title }) => {
   return (
@@ -201,7 +203,7 @@ const AssessmentPage = () => {
         {/* Articulation Disorder */}
         {questionReport && questionReport.articulationYes > 0 && 
           (questionReport.articulationYes > (questionReport.articulationNo || 0)) && (
-          <div style={styles.cardContainer}>
+          <div style={styles.cardContainer} className='shadow-lg'>
             <div style={styles.textView}>
               <h3 style={styles.heading}>Articulation Disorder</h3>
               <div style={styles.textRow}>
@@ -216,7 +218,7 @@ const AssessmentPage = () => {
         {/* Stammering */}
         {questionReport && questionReport.stammeringYes > 0 && 
           (questionReport.stammeringYes > (questionReport.stammeringNo || 0)) && (
-          <div style={styles.cardContainer}>
+          <div style={styles.cardContainer} className='shadow-lg'>
             <div style={styles.textView}>
               <h3 style={styles.heading}>Stammering</h3>
               <div style={styles.textRow}>
@@ -231,7 +233,7 @@ const AssessmentPage = () => {
         {/* Voice Disorder */}
         {questionReport && questionReport.voiceYes > 0 && 
           (questionReport.voiceYes > (questionReport.voiceNo || 0)) && (
-          <div style={styles.cardContainer}>
+          <div style={styles.cardContainer} className='shadow-lg'>
             <div style={styles.textView}>
               <h3 style={styles.heading}>Voice Disorder</h3>
               <div style={styles.textRow}>
@@ -246,7 +248,7 @@ const AssessmentPage = () => {
         {/* Receptive Language Disorder */}
         {questionReport && questionReport.receptiveNo > 0 && 
           (questionReport.receptiveNo > (questionReport.receptiveYes || 0)) && (
-          <div style={styles.cardContainer}>
+          <div style={styles.cardContainer} className='shadow-lg'>
             <div style={styles.textView}>
               <h3 style={styles.heading}>Receptive Language Disorder</h3>
               <div style={styles.textRow}>
@@ -261,7 +263,7 @@ const AssessmentPage = () => {
         {/* Expressive Language Disorder */}
         {questionReport && questionReport.expressiveNo > 0 && 
           (questionReport.expressiveNo > (questionReport.expressiveYes || 0)) && (
-          <div style={styles.cardContainer}>
+          <div style={styles.cardContainer} className='shadow-lg'>
             <div style={styles.textView}>
               <h3 style={styles.heading}>Expressive Language Disorder</h3>
               <div style={styles.textRow}>
@@ -317,7 +319,8 @@ const styles = {
     alignItems: 'center',
     borderRadius: 16,
     padding: '14px',
-    border: '1px solid ' + COLORS.blue_border_color,
+    filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))',
+    border: '1px solid #2DEEAA' ,
     marginTop: '30px',
   },
   darkButton: {
@@ -341,15 +344,20 @@ const styles = {
     marginTop: '12px',
   },
   bottomButton: {
-    backgroundColor: '#111920',
+    backgroundColor: '#2DEEAA',
     width: '100%',
     padding: '14px',
     borderRadius: '30px',
-    color: '#fff',
+    color: 'black',
     fontWeight: '600',
     cursor: 'pointer',
     textAlign: 'center',
     marginTop: '40px',
+    fontSize: '16px', 
+    transition: 'background-color 0.3s ease',
+  },
+  bottomButtonHover: {
+    backgroundColor: '#28b39b', 
   },
 };
 

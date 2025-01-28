@@ -6,6 +6,7 @@ import styled, { keyframes } from 'styled-components';
 import BaseURL from '../components/ApiCreds';
 import { insertSessionData, capitalize, getToken } from "../utils/functions";
 import CustomHeader from '../components/CustomHeader';
+import '../../src/App.css'
 
 // Define the wave animation keyframe
 const waveAnimation = keyframes`
@@ -58,7 +59,7 @@ const Wave = styled.div`
 const WaveLine = styled.div`
   width: 3px;
   height: ${props => props.height}px;
-  background-color: ${props => props.isUser ? '#fff' : '#2DEEAA'};
+  background-color: ${props => props.isUser ? '#fff' : '#000000'};
   border-radius: 1px;
   transition: height 0.1s ease;
   animation: ${props => props.isAnimating ? waveAnimation : 'none'} 1s infinite;
@@ -308,19 +309,19 @@ const TherapistName = () => {
   }, []);
 
   return (
-    <Container>
-      <CustomHeader title="IzzyAI chatbot" goBack={() => navigate(-1)} />
+<Container >
+        <CustomHeader title="IzzyAI chatbot" goBack={() => navigate(-1)} />
 
-      <ChatContainer ref={chatContainerRef}>
+      <ChatContainer className='className="bg-[#f9fafb] flex flex-col justify-between  md:ml-52 ml-0 md:mr-52 mr-0 h-screen"' ref={chatContainerRef}>
         {chats.map((chat, index) => (
           <MessageGroup key={index} isUser={chat.isUser}>
-            <div className="flex flex-col items-center gap-1">
+            <div className=" items-center gap-1">
               <Mic size={24} />
               <span className="text-sm font-bold">{chat.isUser ? 'You' : 'IzzyAI'}</span>
             </div>
 
             {chat?.path ? (
-              <DisorderButton onClick={() => navigate(`/${chat.path}`)}>
+              <DisorderButton className='flex-col' onClick={() => navigate(`/${chat.path}`)}>
                 {chat.text}
               </DisorderButton>
             ) : chat.audio ? (
@@ -355,13 +356,17 @@ const TherapistName = () => {
               <span className="text-sm font-bold">IzzyAI</span>
             </div>
             <MessageText>
-              <CircleLoader size={30} color="#2DEEAA" />
+            <div className="dots-loader">
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+    </div>
             </MessageText>
           </MessageGroup>
         )}
       </ChatContainer>
 
-      <InputContainer>
+      <InputContainer className='className="bg-[#f9fafb] flex  justify-between  md:ml-52 ml-0 md:mr-52 mr-0 h-screen"'>
         {recordingStatus === 'recording' ? (
           <Wave style={{ flex: 1 }}>
             {Array.from({ length: 8 }).map((_, i) => (

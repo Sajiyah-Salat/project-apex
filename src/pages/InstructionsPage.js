@@ -33,7 +33,7 @@ function InstructionsPage() {
           </p>
           <div style={{ height: '20px' }} />
 
-          <div className="h-[40vh] justify-center w-[90vw] flex flex-col items-center ">
+          <div className="h-[40vh]  w-[80vw] flex flex-col items-center justify-center">
   <div style={styles.text_row}>
  <span className="text-teal-500 text-[20px] animate-pulse glow">•</span>
      <p style={{ ...styles.base, fontSize: 16, fontWeight: 400, textAlign: 'justify', width: '100%' }}>

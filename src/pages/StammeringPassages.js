@@ -34,7 +34,7 @@ const StammeringPassages = () => {
     <div style={styles.safeArea}>
       <CustomHeader goBack={() => history(-1)} title="Stammering Passages" />
       <div style={styles.content}>
-        <Card
+        <Card 
           onPress={() => history('/passagePage', { state: { sessionId, isAll } })}
           title="Grandfather Passage"
         />
@@ -57,7 +57,7 @@ const styles = {
   },
   cardContainer: {
     borderWidth: '1px',
-    borderColor: '#0cc8e8',
+    borderColor: '#2DEEAA',
     borderRadius: '16px',
     padding: '14px',
     display: 'flex',
@@ -66,6 +66,7 @@ const styles = {
     width: '100%',
     marginTop: '30px',
     gap: '20px',
+    boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
   },
   darkButton: {
     marginLeft: 'auto',

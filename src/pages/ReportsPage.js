@@ -27,12 +27,12 @@ function Card({ reportData, assessment, itemNum }) {
         className="cursor-pointer mt-3.5"
       >
         <div className="bg-gradient-to-br from-[#0CC8E8] to-[#2DEEAA] p-0.5 rounded-2xl">
-          <div className="flex justify-between items-center bg-white rounded-2xl p-4">
-            <div className="flex-1 mr-2.5">
+          <div className="flex justify-between shadow-lg hover:bg-gray-50  items-center bg-white rounded-2xl p-4">
+            <div className="flex-1 mr-2.5 ">
               <h3 className="text-lg font-medium text-gray-900">
                 {DisorderName} Assessment
               </h3>
-              <div className="flex items-center mt-1.5">
+              <div className="flex items-center  mt-1.5">
                 <Calendar className="w-4 h-4" />
                 <span className="text-sm font-medium ml-1.5 text-gray-900">
                   {moment(AssessmentDate).subtract(5, 'hours').format("YYYY-MM-DD hh:mm:ss")}
@@ -73,8 +73,8 @@ function ExerciseCard({ reportData, exercise, itemNum }) {
         onClick={() => setDetailsOpen(true)}
         className="cursor-pointer mt-3.5"
       >
-        <div className="bg-gradient-to-br from-[#FF8C00] to-[#FFD700] p-0.5 rounded-2xl">
-          <div className="flex justify-between items-center bg-white rounded-2xl p-4">
+        <div className="bg-gradient-to-br from-[#0CC8E8] to-[#2DEEAA]  p-0.5 rounded-2xl">
+          <div className="flex justify-between shadow-lg hover:bg-gray-50  items-center bg-white rounded-2xl p-4">
             <div className="py-2.5">
               <h3 className="text-lg font-medium text-gray-900 max-w-[250px]">
                 {DisorderName} Exercise
@@ -158,7 +158,7 @@ function ReportsPage({ }) {
   );
 
   const GameCard = ({ title, score }) => (
-    <div className="flex justify-between items-center border border-[#2DEEAA] rounded-lg bg-white mt-8 px-5 py-5">
+    <div className="flex shadow-lg hover:bg-[#d2f5e9] justify-between items-center border border-[#2DEEAA] rounded-lg bg-white mt-8 px-5 py-5">
       <span className="text-xl font-semibold text-gray-900">{title}</span>
       <span className="text-xl font-extrabold text-[#71D860]">{score}%</span>
     </div>
@@ -176,8 +176,8 @@ function ReportsPage({ }) {
         </div>
 
         {selectedTab === 'games' ? (
-          <div className="mt-4">
-            <GameCard title="Blow Game" score={gameReports?.Lowdness_blow_game_Score || 0} />
+          <div className=" mt-4">
+            <GameCard  title="Blow Game" score={gameReports?.Lowdness_blow_game_Score || 0} />
             <GameCard title="Voice Game" score={gameReports?.Sounds_game_Score || 0} />
             <GameCard title="Animal Game" score={gameReports?.Animal_game_Score || 0} />
             <GameCard title="Transport Game" score={gameReports?.Transport_game_Score || 0} />
@@ -188,6 +188,7 @@ function ReportsPage({ }) {
             {getData().map((item, index) => (
               selectedTab === 'assessments' ? (
                 <Card
+               
                   key={index}
                   reportData={reportData}
                   assessment={item}

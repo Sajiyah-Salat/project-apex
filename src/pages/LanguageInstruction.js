@@ -23,36 +23,50 @@ function LanguageInstructions() {
   return (
     <div style={styles.safe_area}>
       <CustomHeader title="Expressive Language Disorder" goBack={navigateBack} />
-      <div style={styles.main_view}>
-        <div style={styles.scrollView}>
+      <div className='bg-white h-[80vh] text-center w-[80vw] flex-col justify-center p-20 items-center m-10 rounded-lg shadow-lg' >
+      <div style={styles.scrollView}>
           <img
             style={styles.image}
-            src={require('../assets/images/mouth.png')} // Replace with a web-friendly import or path
+            src={require('../assets/images/mouth.png')}
             alt="Mouth"
           />
 
-          <h1 style={styles.heading}>Assessment Instructions</h1>
+          <p style={{ ...styles.base, ...styles.heading, textAlign: 'center' }}>
+            Assessment Instructions
+          </p>
+          <div style={{ height: '20px' }} />
 
-          <div style={styles.text_row}>
-            <span style={styles.base}>{"\u2B24"}</span>
-            <p style={styles.base}>Speak out loud and clearly to answer each question.</p>
-          </div>
+          <div className="h-[30vh]  w-[80vw] flex flex-col items-center justify-center">
+  <div style={styles.text_row}>
+ <span className="text-teal-500 text-[20px] animate-pulse glow">•</span>
+     <p style={{ ...styles.base, fontSize: 16, fontWeight: 400, textAlign: 'justify', width: '100%' }}>
+      You will be shown some images of random objects. Say the names of each object loud and clearly.
+    </p>
+  </div>
 
-          <div style={styles.text_row}>
-            <span style={styles.base}>{"\u2B24"}</span>
-            <p style={styles.base}>Hit the “Record” button to record your voice.</p>
-          </div>
+  <div style={styles.text_row}>
+    <span  className="text-teal-500 text-[20px] animate-pulse glow">•</span>
+    <p style={{ ...styles.base, fontSize: 16, fontWeight: 400, textAlign: 'justify', width: '100%' }}>
+      Hit the  "Record"  button to start answering , making sure to speak clearly and loudly for acurate.
+    </p>
+  </div>
 
-          <div style={styles.text_row}>
-            <span style={styles.base}>{"\u2B24"}</span>
-            <p style={styles.base}>
-              IzzyAI will respond advising whether your answer is correct or incorrect.
-            </p>
-          </div>
-        </div>
+  <div style={styles.text_row}>
+    <span  className="text-teal-500 text-[20px] animate-pulse glow">•</span>
+    <p style={{ ...styles.base, fontSize: 16, fontWeight: 400, textAlign: 'justify', width: '100%' }}>
+      IzzyAl will respond advising whether your answers are correct or incorrect, guiding you to improve.
+    </p>
+  </div>
+</div>
+
+
+
         <CustomButton onPress={navigate} title="Start Now" />
+        </div>
+
       </div>
-    </div>
+</div>
+
   );
 }
 
